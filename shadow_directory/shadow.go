@@ -28,7 +28,8 @@ none            466G  295G  171G  64% /vagrant
 root@vagrant-ubuntu-trusty-64:~$ du -sxh /
 2.6G	/
 
-Da faq? We automatically do lsof |grep deleted but that doesn't help.... until we discover a mountpoint (/run in this case) is shadowing the files in the /run directory
+Da faq? We automatically do lsof |grep deleted but that doesn't help.... until we discover a mountpoint (/run in this case) is shadowing the files in the /run directory.
+The troll is executed by moving to a new mount namespace then lazy umounting the filesystem. After umounting we can fill the directory while the rest of the system can't get to that directory.
 `
 	mount = ""
 )
