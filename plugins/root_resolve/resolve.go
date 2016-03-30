@@ -1,9 +1,10 @@
 package root_resolve
 
 import (
+	"os"
+
 	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
 	"gopkg.in/alecthomas/kingpin.v2"
-	"os"
 )
 
 var (

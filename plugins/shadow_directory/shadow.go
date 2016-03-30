@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
-	"gopkg.in/alecthomas/kingpin.v2"
 	"os"
 	"path"
 	"strings"
 	"syscall"
+
+	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (

@@ -1,12 +1,16 @@
 package main
 
 import (
-	"github.com/avishai-ish-shalom/debug-this-motherfucker/common"
-	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/invisible_net"
-	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/root_resolve"
-	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/shadow_directory"
+	"os"
+
+	"gopkg.in/alecthomas/kingpin.v2"
+
+	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
+	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/plugins/invisible_net"
+	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/plugins/root_resolve"
+	_ "github.com/avishai-ish-shalom/debug-this-motherfucker/plugins/shadow_directory"
 )
 
 func main() {
-	common.Main()
+	kingpin.MustParse(dbtm.App.Parse(os.Args[1:]))
 }
