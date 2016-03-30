@@ -1,10 +1,12 @@
 package invisible_net
 
 import (
-	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
-	"gopkg.in/alecthomas/kingpin.v2"
 	"io/ioutil"
 	"os"
+
+	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
+
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (
