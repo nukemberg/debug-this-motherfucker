@@ -2,11 +2,15 @@ language: go
 go:
 - '1.6'
 - '1.7'
+install:
+  - go get -d -v
+  - ./build.sh
 deploy:
   api_key:
     secure: d/pSY76fDWsHWWBwtkixfAdZHZpbNEgqkip2eXdV8PAdI8qSDl60agvPHWpKx75wdev9McbH78yfxVA6GTyQNGf56yOdFl0nPgyYDFaylH3//98ZPm1G+OYGzChjmnvKNV7XoWu4r6oWdGcacW8Cnjrn1omJQAawfPlDj6sTtgCHBzdQ4/kFTwImTKbqkJRWWyMZ64FveBpDyyKjR6HJ97SCpjFxbLAxDaRz1MWqX+yGMVlQMbF1jdpcOCCYpC0VnP9lgRWDMOG5soDwkFN7qVxEN1nEEPkruFc55RFJlNEk7+hSbxScVG08+IGCtfb2KCtVPjxHi9ecC95OFHQyo3Xp2xzsr6R5wnfStURTki1Phi5dCW2+83LnoAAd/PLckgNRkaR6x5B1dWZZYQw1pr7Wj/PsT7VjcwgTSaBGsXwjbn1dTsYqv4m065s8ByU8BWmC1ZUlMiEnYwd3Sl9j7cgVlqxx2aYyBxs4Ikfx8+ILmVRMfCIcZfngC9I3Mf9WYRo/IVhiq+nvWLULIlRMNqJ8sgPayUnt/qIkc6EtI6R+RPm7cXfSE3vlulUbCqU2hq4zNhk1kxGBN5aBgPFvTbFgWzhw7P8ktSedeNouLqBEpMQ4k6uE0MUNjC2IcO9b1nWBzfh42CtVflKgf2q3yRxCv7W00O8xXPwhy8OjdYQ=
   provider: releases
-  file: debug-this-motherfucker
+  file: dbtm
   skip_cleanup: true
   on:
     tags: true
+    condition: $TRAVIS_GO_VERSION = 1.7
