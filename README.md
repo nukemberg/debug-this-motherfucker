@@ -13,6 +13,12 @@ user@test-server:~$ ip a
 user@test-server:~$ # wtf? how did I ssh into a server that has no network?
 ```
 
+## Building/Installing
+
+`debug-this-motherfucker` is written in golang and compiled as a static binary. Thus no installation is required, simply download a binary from the [releases](https://github.com/avishai-ish-shalom/debug-this-motherfucker/releases) page.
+
+To build, run `./build.sh` or `go get -d -v && go build -o dbtm`
+
 ## Usage
 
 - `--help` or `help` subcommand to display help
