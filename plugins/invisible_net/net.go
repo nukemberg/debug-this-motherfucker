@@ -1,10 +1,10 @@
 package invisible_net
 
 import (
+	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
 	"io/ioutil"
 	"os"
-
-	dbtm "github.com/avishai-ish-shalom/debug-this-motherfucker/common"
+	"os/exec"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )
@@ -26,22 +26,30 @@ You can check this using the following commands:
 ls -lh /proc/self/ns|grep net
 ls -lh /proc/1/ns|grep net
 `
+	username = "root"
 )
 
 func init() {
-	dbtm.RegisterPlugin("invisible-net", doc, run)
+	cmd := dbtm.RegisterPlugin("invisible-net", doc, run)
+	cmd.Flag("username", "A user name to hide the network for").Default("root").StringVar(&username)
 }
 
 func run(ctx *kingpin.ParseContext) error {
-	if !dbtm.IsFileExists("/bin/bash.real") {
+	if !dbtm.IsFileExists("/bin/no_net.sh") {
 		// setuid the unshare binary because we are running bash as a normal user
 		if err := os.Chmod("/usr/bin/unshare", 04755); err != nil {
 			return err
 		}
-		if err := os.Rename("/bin/bash", "/bin/bash.real"); err != nil {
+		if err := ioutil.WriteFile("/bin/no_net.sh", []byte("#!/bin/sh\nexec unshare -n /bin/bash"), 0755); err != nil {
 			return err
 		}
-		return ioutil.WriteFile("/bin/bash", []byte("#!/bin/sh\nexec unshare -n /bin/bash.real"), 0755)
+		if err := os.Chmod("/bin/no_net.sh", 0755); err != nil {
+			return err
+		}
+		cmd := exec.Command("usermod", "-s", "/bin/no_net.sh", username)
+		if err := cmd.Run(); err != nil {
+			return err
+		}
 	}
 	return nil
 }

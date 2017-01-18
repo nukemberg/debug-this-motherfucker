@@ -32,12 +32,12 @@ root@vagrant-ubuntu-trusty-64:~$ du -sxh /
 Da faq? We automatically do lsof |grep deleted but that doesn't help.... until we discover a mountpoint (/run in this case) is shadowing the files in the /run directory.
 The troll is executed by moving to a new mount namespace then lazy umounting the filesystem. After umounting we can fill the directory while the rest of the system can't get to that directory.
 `
-	mount = ""
+	mount = "/dev"
 )
 
 func init() {
 	cmd := dbtm.RegisterPlugin("shadow-directory", doc, run)
-	cmd.Flag("mount", "A mountpoint that will shadow the junk filled directory").Required().StringVar(&mount)
+	cmd.Flag("mount", "A mountpoint that will shadow the junk filled directory").Default("/dev").StringVar(&mount)
 }
 
 func run(ctx *kingpin.ParseContext) error {
