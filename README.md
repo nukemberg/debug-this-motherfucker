@@ -17,7 +17,7 @@ user@test-server:~$ # wtf? how did I ssh into a server that has no network?
 Click one of the buttons bellow (and use _root_ to log in)
 
 - Shadow Directory - [![Dply](https://dply.co/b.svg)](https://dply.co/b/gdrxG6fJ)
-- Invisible Network - [![Dply](https://dply.co/b.svg)](https://dply.co/b/Z7UJOT1G) 
+- Invisible Network - [![Dply](https://dply.co/b.svg)](https://dply.co/b/UjfaeIMl) 
 
 ## Building/Installing
 
