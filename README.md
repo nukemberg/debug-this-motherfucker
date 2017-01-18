@@ -14,10 +14,10 @@ user@test-server:~$ # wtf? how did I ssh into a server that has no network?
 ```
 
 ## Wanna play?
-Click one of the buttons bellow (and use _root_ to log in)
+Click one of the links bellow (and use _root_ to log in) (powered by [Dply](https://dply.co)) ![Dply](https://dply.co/b.svg)
 
-- Shadow Directory - [![Dply](https://dply.co/b.svg)](https://dply.co/b/gdrxG6fJ)
-- Invisible Network - [![Dply](https://dply.co/b.svg)](https://dply.co/b/UjfaeIMl) 
+- [Shadow Directory](https://dply.co/b/gdrxG6fJ)
+- [Invisible Network](https://dply.co/b/UjfaeIMl)
 
 ## Building/Installing
 
